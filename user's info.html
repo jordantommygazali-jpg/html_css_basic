@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Info Display</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 30px;
+        }
+        .container {
+            max-width: 500px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input, button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+        button {
+            background: #4CAF50;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background: #45a049;
+        }
+        .result-box {
+            margin-top: 20px;
+            padding: 20px;
+            background: #eef;
+            border-radius: 8px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>User Info Form</h2>
+
+    <label>Name:</label>
+    <input id="nameInput" type="text" placeholder="Enter your name">
+
+    <label>Email:</label>
+    <input id="emailInput" type="email" placeholder="Enter your email">
+
+    <label>Age:</label>
+    <input id="ageInput" type="number" placeholder="Enter your age">
+
+    <button onclick="showInfo()">Show Info</button>
+
+    <div id="result" class="result-box">
+        <h3>Your Info:</h3>
+        <p id="nameResult"></p>
+        <p id="emailResult"></p>
+        <p id="ageResult"></p>
+    </div>
+</div>
+
+<script>
+function showInfo() {
+    let name = document.getElementById("nameInput").value;
+    let email = document.getElementById("emailInput").value;
+    let age = document.getElementById("ageInput").value;
+
+    if (!name || !email || !age) {
+        alert("Please fill out all fields.");
+        return;
+    }
+
+    document.getElementById("nameResult").innerText = "Name: " + name;
+    document.getElementById("emailResult").innerText = "Email: " + email;
+    document.getElementById("ageResult").innerText = "Age: " + age;
+
+    document.getElementById("result").style.display = "block";
+}
+</script>
+
+</body>
+</html>
